@@ -1,0 +1,13 @@
+#!/bin/bash
+
+p=""
+f="$1"
+
+shift
+
+for glob in $@; do
+  p="$p\\x$glob"
+done
+
+LANG=C grep -HobUaP "$p" $f
+

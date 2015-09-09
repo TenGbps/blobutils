@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+
+import struct,sys
+
+while True:
+  sample = struct.unpack("=f", sys.stdin.buffer.read(4))[0]
+  print(sample)

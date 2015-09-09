@@ -1,0 +1,5 @@
+#!/bin/bash
+
+c=`echo "$1" | tr a-z A-Z`
+
+echo "obase=16;ibase=10;$c" | bc

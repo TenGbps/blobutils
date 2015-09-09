@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+import sys,binascii
+
+for line in sys.stdin.readlines():
+  line = line.strip()
+  nibbles = len(line)
+  data = binascii.unhexlify(line)
+  o = 0
+  for i in range(0, len(data)):
+    for j in range(0, 8):
+      val = (data[i]>>j)&1
+      ofs = ( (7-j) + 8*(len(data) - i - 1) )
+      o |= val << ofs
+  ast = '{0:0'+str(nibbles)+'X}'
+  print(ast.format(o))
+

@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+
+import sys, binascii
+
+nibble="x"
+
+for l in sys.stdin:
+  for c in l:
+    if c in "0123456789ABCDEFabcdef":
+      if nibble == "x":
+        nibble = c
+      else:
+        nibble = nibble+c
+        sys.stdout.buffer.write(binascii.unhexlify(nibble))
+        nibble = "x"
+
+if nibble != "x":
+  sys.stderr.write("Truncated 1 nibble '%s'\n"%(nibble))

@@ -1,0 +1,6 @@
+#!/bin/sh
+echo Enter bytes
+fn=/tmp/$$.blb
+blhexbit > $fn
+vim $fn
+cat $fn | blbithex

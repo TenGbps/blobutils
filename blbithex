@@ -1,0 +1,26 @@
+#!/usr/bin/python3
+
+import sys, binascii
+
+buf=""
+ofs = 0
+
+for l in sys.stdin:
+  l = l.strip()
+  buf=""
+  for c in l:
+    if c in "01":
+      buf = buf+c
+      if len(buf) == 4:
+        i = int(buf, 2)
+        print("%X"%(i), end="")
+        ofs += 1
+        if ofs%2 == 0:
+          print(" ", end="")
+        buf = ""
+  if buf != "":
+    i = int(buf, 2)
+    print("%X"%(i), end="")
+  print()
+
+

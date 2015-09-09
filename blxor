@@ -1,0 +1,7 @@
+#!/usr/bin/python3
+import sys
+
+a=int(sys.argv[1], 16)
+b=int(sys.argv[2], 16)
+
+print("%X"%(a^b))

@@ -1,0 +1,23 @@
+#!/usr/bin/python3
+
+import sys, binascii
+
+for l in sys.stdin:
+  out = 0
+  for c in l:
+    if c in "0123456789ABCDEFabcdef":
+      d = binascii.unhexlify("0"+c)
+      bits = bin(d[0])[2:]
+      while len(bits) < 4:
+        bits = "0"+bits
+      for b in bits:
+        if b == "0":
+          print("█", end="")
+        else:
+          print(" ", end="")
+      if out%2 == 1:
+        print()
+      out += 1
+  print()
+
+
