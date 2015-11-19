@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+
+import struct,sys
+
+fs = "=%s"%sys.argv[1]
+t = struct.calcsize(fs)
+
+while True:
+
+  r = sys.stdin.buffer.read(t)
+  sample = struct.unpack(fs, r)[0]
+  print(sample)
