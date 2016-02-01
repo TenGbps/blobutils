@@ -12,6 +12,8 @@
 //#include <sys/ipc.h>
 //#include <sys/shm.h>
 
+#include <fcntl.h>
+
 #include <time.h>
 
 #include <math.h>
@@ -49,6 +51,10 @@ void readn(int fd, char * buf, int n) {
   int pos = 0;
   while(pos<n) {
     ssize_t j = read(fd, buf+pos, n-pos);
+    if(j <= 0) {
+      fprintf(stderr, "error at %i\n", pos);
+      exit(1);
+    }
     pos += j;
   }
 }
@@ -57,6 +63,10 @@ void writen(int fd, char * buf, int n) {
   int pos = 0;
   while(pos<n) {
     ssize_t j = write(fd, buf+pos, n-pos);
+    if(j <= 0) {
+      fprintf(stderr, "error at %i\n", pos);
+      exit(1);
+    }
     pos += j;
   }
 }
