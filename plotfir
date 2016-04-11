@@ -1,0 +1,10 @@
+#!/bin/bash
+fs=$1
+if [ -z $fs ]; then
+  fs=1
+fi
+vect=`cat - | tr "\n" "," | tr -s ","`
+
+cat ~/bin/blobutils/fir.template | sed -re "s/VECT/$vect/g" -e "s/FRQ/$fs/g" > /tmp/fir.oct
+
+octave /tmp/fir.oct
