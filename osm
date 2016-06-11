@@ -1,0 +1,10 @@
+GPS=`xclip -out | grep -oE "[0-9]+.[0-9]+" | tr "\n" " " | sed -re "s/[^0-9\.]/ /g" | tr -s " "`
+
+
+LAT=`echo $GPS |cut -f1 -d " "`
+LON=`echo $GPS |cut -f2 -d " "`
+
+echo $LAT $LON
+
+sudo -u firefox iceweasel "http://www.openstreetmap.org/?mlat=${LAT}&mlon=${LON}"
+

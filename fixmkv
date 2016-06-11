@@ -1,0 +1,2 @@
+#!/bin/bash
+avconv -i "$1" -vcodec copy -acodec copy -y "$1.mkv"
