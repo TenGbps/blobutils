@@ -1,2 +1,3 @@
-jcc gr-pack.c
-jcc gr-unpack.c
+jcf gr-pack.c
+jcf gr-unpack.c
+jcf float-compare.c

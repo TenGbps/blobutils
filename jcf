@@ -1,0 +1,3 @@
+#!/bin/sh
+
+gcc -g -std=gnu11 -Wall -lm -lpthread -O3 -g -ggdb3 $@ -o `echo $1 | cut -d . -f 1`
