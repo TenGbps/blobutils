@@ -1,2 +1,2 @@
 #!/bin/bash
-ps axu|grep "$1"
+ps axu|grep --color=auto "$1"

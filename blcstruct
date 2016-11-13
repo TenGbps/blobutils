@@ -10,7 +10,7 @@ if len(sys.argv) < 2:
   print("Q - u64, q - i64")
   print("f, d - float32, 64")
 
-fs = "=%s"%sys.argv[1]
+fs = "%s"%sys.argv[1]
 t = struct.calcsize(fs)
 
 while True:
