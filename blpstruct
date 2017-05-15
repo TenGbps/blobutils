@@ -14,8 +14,10 @@ fs = "%s"%sys.argv[1]
 t = struct.calcsize(fs)
 
 while True:
-  r = sys.stdin.buffer.read(t)
+  r = sys.stdin.readline()
   if not r:
     break
-  sample = struct.unpack(fs, r)[0]
-  print(sample)
+  if "f" in sys.argv[1] or "d" in sys.argv[1]:
+    sys.stdout.buffer.write(struct.pack(fs, float(r)))
+  else:
+    sys.stdout.buffer.write(struct.pack(fs, int(r)))
