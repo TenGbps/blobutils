@@ -1,11 +1,11 @@
 fs=FRQ;
-n = 512;
+n = 1024;
 [H,f] = freqz([VECT], 1, n, fs);
 cutoff = -3 * ones(n);
 octaveup = -9 * ones(n);
 figure(1);
 disp(20*log10(abs(H)));
-plot(f, 20*log10(abs(H)), f, cutoff, f, octaveup);
+plot(f, 20*log10(abs(H))); #, f, cutoff, f, octaveup);
 xlabel('Frequency (Hz)');
 ylabel('Magnitude (dB)');
 pause(1000*1000);
