@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <inttypes.h>
@@ -19,6 +21,10 @@
 #include <math.h>
 #include <err.h>
 
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <assert.h>
+
 typedef uint8_t u8;
 typedef uint16_t u16;
 typedef uint32_t u32;
@@ -31,22 +37,12 @@ typedef int32_t i32;
 typedef int64_t i64;
 
 #define mask32 0xFFFFFFFF
+#define MEGA 1000000
+#define GIGA 1000000000
 
-int max(int a, int b) {
-  if (a>b) {
-    return a;
-  } else {
-    return b;
-  }
-}
-
-int min(int a, int b) {
-  if (a<b) {
-    return a;
-  } else {
-    return b;
-  }
-}
+#define MIN(a,b) (((a)<(b))?(a):(b))
+#define MAX(a,b) (((a)>(b))?(a):(b))
+#define CLAMP(x, lower, upper) (MIN(upper, MAX(x, lower)))
 
 void readn(int fd, char * buf, int n) {
   int pos = 0;
