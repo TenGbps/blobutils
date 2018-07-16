@@ -1,0 +1,8 @@
+#!/bin/bash
+
+c="`cat -`"
+echo "$c" | openssl x509 -text -noout
+echo "$c" | openssl x509 -text -noout | head -n 16
+echo "$c" | openssl x509 -fingerprint -sha256 -noout | head -n 1
+
+
