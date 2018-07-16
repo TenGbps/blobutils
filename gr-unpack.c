@@ -8,15 +8,8 @@ int main(int argc, char **argv) {
 
   int in;
   int i;
-  ssize_t d;
 
-  while(1) {
-
-    d = read(0, &in, 1);
-
-    if(d<=0) {
-      break;
-    }
+  while(fread(&in, 1, 1, stdin) > 0) {
 
     for(i=0; i<8; i++) {
       putchar((in >> (7-i)) & 1);

@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     res = 0;
 
     for(i=0; i<8; i++) {
-      d = read(0, &in, 1);
+      d = fread(&in, 1, 1, stdin);
 
       if(d<=0) {
         break;
