@@ -10,8 +10,11 @@ Terms: bin: raw binary data; bits: ascii '0' and '1'; hex: ascii hexdump
 
 blbgrep: grep binary file
 <code>
+  
 > blbgrep data.bin 04 ee 04 7e
+  
 data.bin:<offset>
+  
 </code>
 blbinhex: hexdump (binary to hexa)
 
@@ -30,11 +33,17 @@ blhexbit: hex to bits
 blhexbitmap: hex to black and white image (e.g. adafruit gfx format)
 <code>
 echo 22 54 54 78 42 | blhexbitmap
+  
 ██ ███ █
+  
 █ █ █ ██
+  
 █ █ █ ██
+  
 █    ███
+  
 █ ████ █
+  
 </code>
 
 blhexflip: interactive binary editor
@@ -59,6 +68,7 @@ itemize: add line numbers (I did not know about nl command back then)
 sum.sh: sum numbers, one per line
 <code>
 echo -e "-7.247 \n 3.28 \n 0.3 \n 1" | sum.sh
+  
 -2.667
 </code>
 
